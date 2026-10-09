@@ -384,18 +384,51 @@ fun main() {
     Contar cuántos números pares contiene un array.
     */
 
+    println()
+    println("<<<<< EJERCICIO 20 >>>>>>")
+
+    val paresArray = arrayOf(2,4,6,8,3,6,1,0)
+
+    var acumuladorPares: Int = 0
+
+    for (numero in paresArray){
+        if (numero % 2 == 0){
+            acumuladorPares ++
+        }
+    }
+
+    println("El numero de pares en el array es : $acumuladorPares")
 
     /*  Bloque 5. Arrays avanzados
     Ejercicio 21
     Invertir un array sin utilizar `reversed()`.
     */
 
+    println()
+    println("<<<<< EJERCICIO 21 >>>>>>")
+
+    val invertirArray = arrayOf(1,2,3,4,5,6,7,8,9,0)
+
+    for (indice in 9 downTo 0){
+        println(invertirArray[indice])
+    }
 
     /*  Ejercicio 22
     Buscar un valor dentro de un array e indicar su posición.
     */
 
+    println()
+    println("<<<<< EJERCICIO 22 >>>>>>")
 
+    val buscarEnArray = arrayOf("pruebas", "para", "encontrar", "ESTE", "valor")
+
+    val valorBuscado: String = "ESTE"
+
+    for (indice in buscarEnArray.indices){ // .indices FUNCION que accede a los indices del array
+        if (valorBuscado == buscarEnArray[indice]){
+            println("La posicion del elemento buscado es $indice")
+        }
+    }
     /*  Ejercicio 23
     Copiar un array en otro array.
     */
