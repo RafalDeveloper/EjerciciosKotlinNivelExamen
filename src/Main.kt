@@ -1,5 +1,3 @@
-import com.sun.jdi.Value
-
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 fun main() {
@@ -429,10 +427,26 @@ fun main() {
             println("La posicion del elemento buscado es $indice")
         }
     }
+
     /*  Ejercicio 23
     Copiar un array en otro array.
     */
 
+    println()
+    println("<<<<< EJERCICIO 23 >>>>>>")
+
+    val copiarArrayEnArray1 = arrayOf(1, 2, 3, 4, 5)
+    val copiarArrayEnArray2 = arrayOf(11, 22, 33, 44, 55)
+
+    for (indice in copiarArrayEnArray1.indices) {
+        copiarArrayEnArray2[indice] = copiarArrayEnArray1[indice]
+    }
+
+    println("El copiado del segundo array queda así: ${copiarArrayEnArray2.contentToString()}")
+    //contentToString() muestra los elementos del array.
+
+    // copiarArrayEnArray1.copyInto(copiarArrayEnArray2)
+    // arrayOrigen.copyInto(arrayDestino) para copiar arrays sin utilizar for
 
     /*  Ejercicio 24
     Sumar dos arrays posición a posición.
@@ -447,10 +461,46 @@ fun main() {
     ```
     */
 
+    println()
+    println("<<<<< EJERCICIO 24 >>>>>>")
+
+    val sumaArray1 = arrayOf(1, 2, 3)
+    val sumaArray2 = arrayOf(4, 5, 6)
+    val sumaResutladoArray = arrayOf(0, 0, 0)
+
+    for (indice in sumaArray1.indices) {
+        sumaResutladoArray[indice] = sumaArray1[indice] + sumaArray2[indice]
+    }
+
+    println("El resultado de la suma de cada elementos de los arrays es ${sumaResutladoArray.contentToString()}")
+
 
     /*  Ejercicio 25
     Determinar si dos arrays contienen exactamente los mismos elementos.
     */
+
+    println()
+    println("<<<<< EJERCICIO 25 >>>>>>")
+
+    val mismoArray1 = arrayOf(1, 2, 3, 4, 5)
+    val mismoArray2 = arrayOf(1, 21, 3, 4, 5)
+    var comprobarMismoArray = true
+
+    for (indice in mismoArray1.indices) {
+        if (mismoArray1[indice] != mismoArray2[indice]) {
+            comprobarMismoArray = false
+        }
+    }
+
+    // se puede comprobar el boleano con un if fuera del for o directamente el if dentro del println
+    // if (comprobarMismoArray) {
+    //    println("Los elementos de los dos arrays coinciden")
+    //} else {
+    //    println("Son diferentes")
+    //}
+
+    println(if (comprobarMismoArray) "Los elementos de los dos arrays coinciden." else "Los elementos de los dos arrays son diferentes.")
+    println("${mismoArray1.contentToString()} y ${mismoArray2.contentToString()}")
 
 
     /*  Bloque 6. Colecciones
@@ -459,21 +509,62 @@ fun main() {
     Añadir cinco elementos.
     */
 
+    println()
+    println("<<<<< EJERCICIO 26 >>>>>>")
+
+    val anadirMutableList = mutableListOf<String>()
+
+    anadirMutableList.add("Rafael") // .add para añadir elementos a las mutableList
+    anadirMutableList.add("Maria")
+    anadirMutableList.add("Martin")
+    anadirMutableList.add("Lucas")
+    anadirMutableList.add("Selva")
+
+    println("$anadirMutableList")
 
     /*  Ejercicio 27
     Eliminar un elemento de una lista mutable.
     */
 
+    println()
+    println("<<<<< EJERCICIO 27 >>>>>>")
+
+    val eliminarElementosMutables = mutableListOf<Int>(1, 2, 3, 4, 5, 6, 7, 8, 9)
+
+    eliminarElementosMutables.remove(1) //remove para eliminar elemento de listaMutable
+    eliminarElementosMutables.removeAt(0) //removeAt para eliminar elemento(INDICE) de listaMutable
+
+    println("$eliminarElementosMutables")
 
     /*  Ejercicio 28
     Mostrar todos los elementos usando `forEach`.
     */
+
+    println()
+    println("<<<<< EJERCICIO 28 >>>>>>")
+
+    val mostrarElementosMutables = mutableListOf<String>("Maria", "Rafa", "Lucas", "Martin")
+
+//    for (element in mostrarElementosMutables.indices){
+//        println("$element. ${mostrarElementosMutables[element]}")
+//    }
+
+    mostrarElementosMutables.forEach { elemento -> println(elemento) }
 
 
     /*  Ejercicio 29
     Ordenar una lista alfabéticamente.
     */
 
+    println()
+    println("<<<<< EJERCICIO 29 >>>>>>")
+
+    val ordenarListaAlfa = mutableListOf("Rafa", "Maria", "Lucas", "Martin")
+
+    ordenarListaAlfa.sorted() // devuelve una lista ordenada sin modificar la original.
+    ordenarListaAlfa.sort() // ordena la lista original y la modifica.
+
+    println("$ordenarListaAlfa")
 
     /*  Ejercicio 30
     Contar cuántos elementos contiene una lista.
@@ -612,17 +703,5 @@ fun main() {
     10. Utilice Null Safety.
     11. Muestre toda la información por pantalla utilizando forEach.
  */
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
