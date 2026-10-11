@@ -530,11 +530,18 @@ fun main() {
     println("<<<<< EJERCICIO 27 >>>>>>")
 
     val eliminarElementosMutables = mutableListOf<Int>(1, 2, 3, 4, 5, 6, 7, 8, 9)
+    val copiaEliminarElementos = eliminarElementosMutables.toMutableList() //.toMutableList Para crear una "copia" de la lista
 
-    eliminarElementosMutables.remove(1) //remove para eliminar elemento de listaMutable
-    eliminarElementosMutables.removeAt(0) //removeAt para eliminar elemento(INDICE) de listaMutable
+    val elementoEliminado = 1
+    val  posicionEliminada = 0
 
-    println("$eliminarElementosMutables")
+    eliminarElementosMutables.remove(elementoEliminado) //remove para eliminar elemento de listaMutable
+    eliminarElementosMutables.removeAt(posicionEliminada) //removeAt para eliminar elemento(INDICE) de listaMutable
+
+    println("""
+        Si eliminamos el numero $elementoEliminado y despues la posicion $posicionEliminada de la lista ${copiaEliminarElementos.joinToString(", ")} 
+        se nos queda $eliminarElementosMutables
+    """.trimIndent()) // .trimIndent() Para que no aparezcan espacios de más al imprimirlo.
 
     /*  Ejercicio 28
     Mostrar todos los elementos usando `forEach`.
@@ -573,9 +580,9 @@ fun main() {
     println()
     println("<<<<< EJERCICIO 30 >>>>>>")
 
-    val contarElementos = mutableListOf<Int>(1, 2, 3, 4, 5, 6, 7, 8, 9)
+    val contarElementos = mutableListOf<Int>(1, 2, 3, 4, 5)
 
-    println("El total de elementos en la lista es de ${contarElementos.size}")
+    println("El total de elementos de la lista ${contarElementos.joinToString (", ")} es de ${contarElementos.size}")
 
 //    var numeroElementos = 0
 //
@@ -592,10 +599,9 @@ fun main() {
     println()
     println("<<<<< EJERCICIO 31 >>>>>>")
 
-    val generarNuevaLista = mutableListOf<Int>(1, 2, 3, 4, 5, 6, 7, 8, 9)
+    val generarNuevaLista = mutableListOf(1, 2, 3, 4, 5)
 
-    println("El mapeo de la lista, siendo el cuadradado de cada elemento es = ${generarNuevaLista.map { elemento -> elemento * elemento}}")
-
+    println("El mapeo de la lista, siendo el cuadrado de los elementos ${generarNuevaLista.joinToString(", ")} es = ${generarNuevaLista.map { elemento -> elemento * elemento }}")
     /*  Ejercicio 32
     Obtener únicamente los números pares utilizando `filter`.
     */
@@ -603,11 +609,11 @@ fun main() {
     println()
     println("<<<<< EJERCICIO 32 >>>>>>")
 
-    val obtenerParesLista = mutableListOf<Int>(1, 2, 3, 4, 5, 6, 7, 8, 9)
+    val obtenerParesLista = mutableListOf<Int>(1, 2, 3, 4, 5)
 
     val paresLista = obtenerParesLista.filter { elemento -> elemento % 2 == 0 }
 
-    println("Los numeros pares de la lista son = $paresLista")
+    println("Los numeros pares de ${obtenerParesLista.joinToString (", ")} son los siguientes = $paresLista")
 
 
     /*  Ejercicio 33
@@ -619,7 +625,7 @@ fun main() {
 
     val mayores50 = mutableListOf<Int>(10,20,30,40,50,60,70,80,90,100)
 
-    println("Los numeros mayores de 50 son = ${mayores50.filter { elemento -> elemento > 50 }}")
+    println("Los numeros mayores de 50 de ${mayores50.joinToString(", ")} son = ${mayores50.filter { elemento -> elemento > 50 }}")
 
     /*  Ejercicio 34
     Multiplicar todos los números por 10 utilizando `map`.
@@ -628,11 +634,11 @@ fun main() {
     println()
     println("<<<<< EJERCICIO 34 >>>>>>")
 
-    val multiplicar10 = mutableListOf<Int>(1, 2, 3, 4, 5, 6, 7, 8, 9)
+    val multiplicar10 = mutableListOf<Int>(1, 2, 3, 4, 5)
 
     val resultadoMutliplicar10 = multiplicar10.map { elemento -> elemento * 10 }
 
-    println("El resultado de multiplicar cada elemento x 10 es = $resultadoMutliplicar10")
+    println("El resultado de multiplicar ${multiplicar10.joinToString(", ")} x 10 es = $resultadoMutliplicar10")
 
     /*  Ejercicio 35
     Calcular la suma de todos los números usando `reduce`.
@@ -641,11 +647,11 @@ fun main() {
     println()
     println("<<<<< EJERCICIO 35 >>>>>>")
 
-    val sumaElementos = mutableListOf<Int>(1, 2, 3, 4, 5, 6, 7, 8, 9)
+    val sumaElementos = mutableListOf<Int>(1, 2, 3, 4, 5)
 
     val resultadoSumaElementos = sumaElementos.reduce { acc, i -> i + acc }
 
-    println("La suma de todos los elementos de la lista es = $resultadoSumaElementos")
+    println("La suma de ${sumaElementos.joinToString(", ")} es = $resultadoSumaElementos")
 
 
     /*  Bloque 8. Lambdas
@@ -658,8 +664,9 @@ fun main() {
 
     val dobleLambda: (Int) -> Int = { numero -> numero * 2}
 
-    println("El doble de 5 es = ${dobleLambda(5)}")
+    val numeroDobleLambda: Int = 5
 
+    println("El doble de $numeroDobleLambda es = ${dobleLambda(numeroDobleLambda)}")
 
 
     /*  Ejercicio 37
@@ -671,7 +678,9 @@ fun main() {
 
     val cuadradoLambdaIt: (Int) -> Int = { it * it }
 
-    println("El cuadrado de 7 es = ${cuadradoLambdaIt(7)}")
+    val numCuadradoLambda = 7
+
+    println("El cuadrado de $numCuadradoLambda es = ${cuadradoLambdaIt(numCuadradoLambda)}")
 
     /*  Ejercicio 38
     Crear una lambda que reciba dos parámetros y devuelva su suma.
@@ -681,9 +690,13 @@ fun main() {
     println("<<<<< EJERCICIO 38 >>>>>>")
 
     val suma2paramentrosLambda: (Int, Int) -> Int = { num1, num2 -> num1 + num2}
-    val resultadoSuma2parametros = suma2paramentrosLambda(2,4)
 
-    println("El resultado de la suma de dos parametros es de = $resultadoSuma2parametros")
+    val num1suma2 = 2
+    val num2suma2 = 4
+
+    val resultadoSuma2parametros = suma2paramentrosLambda(num1suma2,num1suma2)
+
+    println("El resultado de $num1suma2 + $num2suma2 es de = $resultadoSuma2parametros")
 
     /*  Ejercicio 39
     Crear una lambda que determine si un número es positivo.
@@ -693,9 +706,12 @@ fun main() {
     println("<<<<< EJERCICIO 39 >>>>>>")
 
     val comprobarPositivoLambda: (Int) -> Boolean = { it > 0}
-    val esPositivo = comprobarPositivoLambda(-3)
 
-    println("¿El número es positivo? ${if (esPositivo) "✅" else "❌"}")
+    val numComprobarPositivo = -3
+
+    val esPositivo = comprobarPositivoLambda(numComprobarPositivo)
+
+    println("¿El número $numComprobarPositivo es positivo? ${if (esPositivo) "✅" else "❌"}")
 
     /*  Ejercicio 40
     Crear una lambda que reciba una cadena y devuelva su longitud.
@@ -705,9 +721,12 @@ fun main() {
     println("<<<<< EJERCICIO 40 >>>>>>")
 
     val longitudCadena: (String) -> Int = { it.length }
-    val cadenaTxt = longitudCadena("Cinco")
 
-    println("La longitud de la palabra es de $cadenaTxt caracteres")
+    val palabraLongitud = "Cinco"
+
+    val cadenaTxt = longitudCadena(palabraLongitud)
+
+    println("La longitud de la palabra $palabraLongitud, es de $cadenaTxt caracteres")
 
     /*  Bloque 9. Funciones de orden superior
     Ejercicio 41
@@ -726,7 +745,10 @@ fun main() {
         return operacion(num1, num2)
     }
 
-    println("La resta de 2 - 2 es = ${operarDosFunciones(2,2,funcionResta)}")
+    val num1RestaPara2Fun = 2
+    val num2RestaPara2Fun = 3
+
+    println("La resta de $num1RestaPara2Fun y $num2RestaPara2Fun = ${operarDosFunciones(num1RestaPara2Fun ,num2RestaPara2Fun,funcionResta)}")
 
     /*  Ejercicio 42
     Utilizar la función anterior para realizar una suma.
@@ -737,8 +759,10 @@ fun main() {
 
     val funcionSuma: (Int, Int) -> Int = {num1, num2, -> num1 + num2}
 
-    println("La suma de 2 + 2 es = ${operarDosFunciones(2,2,funcionSuma)}")
+    val num1SumaPara2Fun = 3
+    val num2SumaPara2Fun = 4
 
+    println("La suma de $num1SumaPara2Fun y $num2SumaPara2Fun es = ${operarDosFunciones(num1SumaPara2Fun,num2SumaPara2Fun,funcionSuma)}")
 
 
     /*  Ejercicio 43
@@ -751,7 +775,10 @@ fun main() {
 
     val funcionMulti: (Int, Int) -> Int = { num1, num2 -> num1 * num2}
 
-    println("La multiplicacion de 2 x 2 es = ${operarDosFunciones(2,2,funcionMulti)}")
+    val num1MultiPara2Fun = 3
+    val num2MultiPara2Fun = 5
+
+    println("La multiplicacion de $num1MultiPara2Fun y $num2MultiPara2Fun es = ${operarDosFunciones(num1MultiPara2Fun,num2MultiPara2Fun,funcionMulti)}")
 
 
     /*  Bloque 10. Vararg
@@ -762,12 +789,41 @@ fun main() {
     println()
     println("<<<<< EJERCICIO 44  >>>>>>")
 
+    fun sumasNumerosVariables (vararg  numeros : Int): Int{
+        var suma = 0
+
+        for (numero in numeros){
+            suma += numero
+        }
+        return suma
+    }
+
+    val numerosSumaMutable = mutableListOf<Int>(1,2,3,4,5)
+
+    println("La suma de los numeros ${numerosSumaMutable.joinToString (", ")} es de = ${sumasNumerosVariables(*numerosSumaMutable.toIntArray())}")
+    // * permite pasar los elementos del array a la función vararg.
+    // toIntArray() convierte la lista en un array de enteros.
 
 
     /* Ejercicio 45
     Crear una función que devuelva el mayor utilizando `vararg`.
     */
 
+    println()
+    println("<<<<< EJERCICIO 45  >>>>>>")
+
+    fun mayorVararg (vararg  numeros : Int): Int{
+        var comprobador = numeros[0] // Guarda el primer numero de la "lista" vararg
+
+        for (numero in numeros){
+            if (numero > comprobador){
+                comprobador = numero
+            }
+        }
+        return comprobador
+    }
+
+    println("El numero mayor de 1, 2, 3, 4 y 5 es el  = ${mayorVararg(1,2,3,4,5)}")
 
     /*  Bloque 11. Funciones de extensión
     Ejercicio 46
