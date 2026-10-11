@@ -9,7 +9,7 @@ fun main() {
      */
     println("<<<<< EJERCICIO 1 >>>>>>")
 
-    fun esPar (a: Int): Boolean{
+    fun esPar(a: Int): Boolean {
         return a % 2 == 0
     }
 
@@ -23,11 +23,11 @@ fun main() {
     println()
     println("<<<<< EJERCICIO 2 >>>>>>")
 
-    fun mayor (nMayor1: Int, nMayor2: Int): Int {
+    fun mayor(nMayor1: Int, nMayor2: Int): Int {
 
-        if (nMayor1 > nMayor2){
-        return nMayor1}
-        else {
+        if (nMayor1 > nMayor2) {
+            return nMayor1
+        } else {
             return nMayor2
         }
     }
@@ -44,10 +44,11 @@ fun main() {
     println()
     println("<<<<< EJERCICIO 3 >>>>>>")
 
-    fun potencia (base: Int, exponente: Int): Int{
+    fun potencia(base: Int, exponente: Int): Int {
         var resultado = 1
-        repeat(exponente){ // Numero de veces que se repetira la nultiplicacion
-            resultado = resultado * base // la variable de resultado se va acumulando con el nº de veces del repat (4x4)x(4x4)x(4x4)
+        repeat(exponente) { // Numero de veces que se repetira la nultiplicacion
+            resultado =
+                resultado * base // la variable de resultado se va acumulando con el nº de veces del repat (4x4)x(4x4)x(4x4)
             // se podria poner resultado *= base
         }
 
@@ -65,7 +66,7 @@ fun main() {
     println()
     println("<<<<< EJERCICIO 4 >>>>>>") // Ejemplo, el factorial de 5 es 5! = 5 × 4 × 3 × 2 × 1 = 120
 
-    fun factorial (facto: Int): Int{
+    fun factorial(facto: Int): Int {
 
         if (facto == 0) { // Ya que el factorial de 0, da siempre como resultado 1
             return 1
@@ -74,7 +75,7 @@ fun main() {
         var calculo = facto // Varialble para ir acumulando el resultado
         var restaUno: Int = facto // Variable para ir multiplicando por el mismo numero - 1
 
-        repeat(facto -1){ // Restamos uno al facto, para que no llegue a la vuelta 5ª, que seria resultado 0 porque se multiplicaria por 0
+        repeat(facto - 1) { // Restamos uno al facto, para que no llegue a la vuelta 5ª, que seria resultado 0 porque se multiplicaria por 0
             restaUno -= 1 // El nº factorial le resta 1 en cada vuelta
             calculo *= restaUno //Ahora el acumulador (que comienza con el numero factorial) * el factorial - 1
         }
@@ -93,16 +94,16 @@ fun main() {
     println()
     println("<<<<< EJERCICIO 5 >>>>>>")
 
-    fun numeroPrimo (nPrimo: Int): Boolean{ // Comprobamos si al dividir el numero entre el y sus numeros restantes, el resultado es 0
+    fun numeroPrimo(nPrimo: Int): Boolean { // Comprobamos si al dividir el numero entre el y sus numeros restantes, el resultado es 0
 
         var restaUnoAPrimo: Int = nPrimo // Metemos al numero primo en una variable
 
-       repeat(restaUnoAPrimo -2){ // repetimos la division en -2 el numero primo, ya se divide entre el siempre es 0 y si divides entre 1 tambien es 0
-           restaUnoAPrimo -= 1 // Restamos uno al numero primo para que no sea ya divisible entre el, ya que daria true y sale del repeat
-           if (nPrimo % restaUnoAPrimo == 0){ // Comprobamos que el resultado de la division es 0
-               return false // Como no da 0 el resultado, volvemos a comprobar y dividimos por el siguiente numero (-1). Si ya no hay mas, NO ES PRIMO
-           }
-       }
+        repeat(restaUnoAPrimo - 2) { // repetimos la division en -2 el numero primo, ya se divide entre el siempre es 0 y si divides entre 1 tambien es 0
+            restaUnoAPrimo -= 1 // Restamos uno al numero primo para que no sea ya divisible entre el, ya que daria true y sale del repeat
+            if (nPrimo % restaUnoAPrimo == 0) { // Comprobamos que el resultado de la division es 0
+                return false // Como no da 0 el resultado, volvemos a comprobar y dividimos por el siguiente numero (-1). Si ya no hay mas, NO ES PRIMO
+            }
+        }
         return true // Si no hay mas opciones y sale del repeat, si es PRIMO
     }
 
@@ -198,7 +199,15 @@ fun main() {
     val n2esMayor: Int = 4
     val n3esMayor: Int = 6
 
-    println("El numero mayor de $n1esMayor, $n2esMayor y $n3esMayor, es el: ${comprobarMayorDe3(n1esMayor, n2esMayor, n3esMayor)}")
+    println(
+        "El numero mayor de $n1esMayor, $n2esMayor y $n3esMayor, es el: ${
+            comprobarMayorDe3(
+                n1esMayor,
+                n2esMayor,
+                n3esMayor
+            )
+        }"
+    )
 
     /* Ejercicio 10
     Implementa una calculadora utilizando `when`.
@@ -235,7 +244,7 @@ fun main() {
     println()
     println("<<<<< EJERCICIO 11 >>>>>>")
 
-    for (numero in 1..100){
+    for (numero in 1..100) {
         print("$numero · ")
     }
 
@@ -249,8 +258,8 @@ fun main() {
     println()
     println("<<<<< EJERCICIO 12 >>>>>>")
 
-    for (numero in 1 .. 100){
-        if (numero % 2 == 0){
+    for (numero in 1..100) {
+        if (numero % 2 == 0) {
             print(" $numero // ")
         }
     }
@@ -264,8 +273,8 @@ fun main() {
     println()
     println("<<<<< EJERCICIO 13 >>>>>>")
 
-    for (numero in 1..200){
-        if (numero % 5 == 0){
+    for (numero in 1..200) {
+        if (numero % 5 == 0) {
             print("$numero ·")
         }
     }
@@ -278,9 +287,9 @@ fun main() {
     println()
     println("<<<<< EJERCICIO 14 >>>>>>")
 
-    var suma : Int = 0
+    var suma: Int = 0
 
-    for (numero in 1..100){
+    for (numero in 1..100) {
         suma += numero
     }
 
@@ -313,9 +322,9 @@ fun main() {
     println()
     println("<<<<< EJERCICIO 16 >>>>>>")
 
-    val numerosArray = arrayOf(11,22,33,44,55,66,77,88,99,110)
+    val numerosArray = arrayOf(11, 22, 33, 44, 55, 66, 77, 88, 99, 110)
 
-    for (numero in numerosArray){
+    for (numero in numerosArray) {
         println(numero)
     }
 
@@ -327,13 +336,13 @@ fun main() {
     println()
     println("<<<<< EJERCICIO 17 >>>>>>")
 
-    val numMayorArray = arrayOf(12,234,12,4554,654,0)
+    val numMayorArray = arrayOf(12, 234, 12, 4554, 654, 0)
 
     var mayorArray = numMayorArray[0]
 
-    for (numero in numMayorArray){
-        if ( numero > mayorArray){
-             mayorArray = numero
+    for (numero in numMayorArray) {
+        if (numero > mayorArray) {
+            mayorArray = numero
         }
     }
 
@@ -351,7 +360,7 @@ fun main() {
 
     var menorArray = numMenorArray[0]
 
-    for (numero in numMenorArray){
+    for (numero in numMenorArray) {
         if (numero.length <= menorArray.length)
             menorArray = numero
     }
@@ -365,11 +374,11 @@ fun main() {
     println()
     println("<<<<< EJERCICIO 19 >>>>>>")
 
-    val mediaArray = arrayOf(1,2,3,4,5,6)
+    val mediaArray = arrayOf(1, 2, 3, 4, 5, 6)
 
     var acumuladorSuma: Int = 0
 
-    for (numero in mediaArray){
+    for (numero in mediaArray) {
         acumuladorSuma += numero
     }
 
@@ -385,13 +394,13 @@ fun main() {
     println()
     println("<<<<< EJERCICIO 20 >>>>>>")
 
-    val paresArray = arrayOf(2,4,6,8,3,6,1,0)
+    val paresArray = arrayOf(2, 4, 6, 8, 3, 6, 1, 0)
 
     var acumuladorPares: Int = 0
 
-    for (numero in paresArray){
-        if (numero % 2 == 0){
-            acumuladorPares ++
+    for (numero in paresArray) {
+        if (numero % 2 == 0) {
+            acumuladorPares++
         }
     }
 
@@ -405,9 +414,9 @@ fun main() {
     println()
     println("<<<<< EJERCICIO 21 >>>>>>")
 
-    val invertirArray = arrayOf(1,2,3,4,5,6,7,8,9,0)
+    val invertirArray = arrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 0)
 
-    for (indice in 9 downTo 0){
+    for (indice in 9 downTo 0) {
         println(invertirArray[indice])
     }
 
@@ -422,8 +431,8 @@ fun main() {
 
     val valorBuscado: String = "ESTE"
 
-    for (indice in buscarEnArray.indices){ // .indices FUNCION que accede a los indices del array
-        if (valorBuscado == buscarEnArray[indice]){
+    for (indice in buscarEnArray.indices) { // .indices FUNCION que accede a los indices del array
+        if (valorBuscado == buscarEnArray[indice]) {
             println("La posicion del elemento buscado es $indice")
         }
     }
@@ -530,18 +539,25 @@ fun main() {
     println("<<<<< EJERCICIO 27 >>>>>>")
 
     val eliminarElementosMutables = mutableListOf<Int>(1, 2, 3, 4, 5, 6, 7, 8, 9)
-    val copiaEliminarElementos = eliminarElementosMutables.toMutableList() //.toMutableList Para crear una "copia" de la lista
+    val copiaEliminarElementos =
+        eliminarElementosMutables.toMutableList() //.toMutableList Para crear una "copia" de la lista
 
     val elementoEliminado = 1
-    val  posicionEliminada = 0
+    val posicionEliminada = 0
 
     eliminarElementosMutables.remove(elementoEliminado) //remove para eliminar elemento de listaMutable
     eliminarElementosMutables.removeAt(posicionEliminada) //removeAt para eliminar elemento(INDICE) de listaMutable
 
-    println("""
-        Si eliminamos el numero $elementoEliminado y despues la posicion $posicionEliminada de la lista ${copiaEliminarElementos.joinToString(", ")} 
+    println(
+        """
+        Si eliminamos el numero $elementoEliminado y despues la posicion $posicionEliminada de la lista ${
+            copiaEliminarElementos.joinToString(
+                ", "
+            )
+        } 
         se nos queda $eliminarElementosMutables
-    """.trimIndent()) // .trimIndent() Para que no aparezcan espacios de más al imprimirlo.
+    """.trimIndent()
+    ) // .trimIndent() Para que no aparezcan espacios de más al imprimirlo.
 
     /*  Ejercicio 28
     Mostrar todos los elementos usando `forEach`.
@@ -582,7 +598,7 @@ fun main() {
 
     val contarElementos = mutableListOf<Int>(1, 2, 3, 4, 5)
 
-    println("El total de elementos de la lista ${contarElementos.joinToString (", ")} es de ${contarElementos.size}")
+    println("El total de elementos de la lista ${contarElementos.joinToString(", ")} es de ${contarElementos.size}")
 
 //    var numeroElementos = 0
 //
@@ -613,7 +629,7 @@ fun main() {
 
     val paresLista = obtenerParesLista.filter { elemento -> elemento % 2 == 0 }
 
-    println("Los numeros pares de ${obtenerParesLista.joinToString (", ")} son los siguientes = $paresLista")
+    println("Los numeros pares de ${obtenerParesLista.joinToString(", ")} son los siguientes = $paresLista")
 
 
     /*  Ejercicio 33
@@ -623,7 +639,7 @@ fun main() {
     println()
     println("<<<<< EJERCICIO 33 >>>>>>")
 
-    val mayores50 = mutableListOf<Int>(10,20,30,40,50,60,70,80,90,100)
+    val mayores50 = mutableListOf<Int>(10, 20, 30, 40, 50, 60, 70, 80, 90, 100)
 
     println("Los numeros mayores de 50 de ${mayores50.joinToString(", ")} son = ${mayores50.filter { elemento -> elemento > 50 }}")
 
@@ -662,7 +678,7 @@ fun main() {
     println()
     println("<<<<< EJERCICIO 36 >>>>>>")
 
-    val dobleLambda: (Int) -> Int = { numero -> numero * 2}
+    val dobleLambda: (Int) -> Int = { numero -> numero * 2 }
 
     val numeroDobleLambda: Int = 5
 
@@ -689,12 +705,12 @@ fun main() {
     println()
     println("<<<<< EJERCICIO 38 >>>>>>")
 
-    val suma2paramentrosLambda: (Int, Int) -> Int = { num1, num2 -> num1 + num2}
+    val suma2paramentrosLambda: (Int, Int) -> Int = { num1, num2 -> num1 + num2 }
 
     val num1suma2 = 2
     val num2suma2 = 4
 
-    val resultadoSuma2parametros = suma2paramentrosLambda(num1suma2,num1suma2)
+    val resultadoSuma2parametros = suma2paramentrosLambda(num1suma2, num1suma2)
 
     println("El resultado de $num1suma2 + $num2suma2 es de = $resultadoSuma2parametros")
 
@@ -705,7 +721,7 @@ fun main() {
     println()
     println("<<<<< EJERCICIO 39 >>>>>>")
 
-    val comprobarPositivoLambda: (Int) -> Boolean = { it > 0}
+    val comprobarPositivoLambda: (Int) -> Boolean = { it > 0 }
 
     val numComprobarPositivo = -3
 
@@ -748,7 +764,15 @@ fun main() {
     val num1RestaPara2Fun = 2
     val num2RestaPara2Fun = 3
 
-    println("La resta de $num1RestaPara2Fun y $num2RestaPara2Fun = ${operarDosFunciones(num1RestaPara2Fun ,num2RestaPara2Fun,funcionResta)}")
+    println(
+        "La resta de $num1RestaPara2Fun y $num2RestaPara2Fun = ${
+            operarDosFunciones(
+                num1RestaPara2Fun,
+                num2RestaPara2Fun,
+                funcionResta
+            )
+        }"
+    )
 
     /*  Ejercicio 42
     Utilizar la función anterior para realizar una suma.
@@ -757,12 +781,20 @@ fun main() {
     println()
     println("<<<<< EJERCICIO 42  >>>>>>")
 
-    val funcionSuma: (Int, Int) -> Int = {num1, num2, -> num1 + num2}
+    val funcionSuma: (Int, Int) -> Int = { num1, num2, -> num1 + num2 }
 
     val num1SumaPara2Fun = 3
     val num2SumaPara2Fun = 4
 
-    println("La suma de $num1SumaPara2Fun y $num2SumaPara2Fun es = ${operarDosFunciones(num1SumaPara2Fun,num2SumaPara2Fun,funcionSuma)}")
+    println(
+        "La suma de $num1SumaPara2Fun y $num2SumaPara2Fun es = ${
+            operarDosFunciones(
+                num1SumaPara2Fun,
+                num2SumaPara2Fun,
+                funcionSuma
+            )
+        }"
+    )
 
 
     /*  Ejercicio 43
@@ -773,12 +805,20 @@ fun main() {
     println()
     println("<<<<< EJERCICIO 43  >>>>>>")
 
-    val funcionMulti: (Int, Int) -> Int = { num1, num2 -> num1 * num2}
+    val funcionMulti: (Int, Int) -> Int = { num1, num2 -> num1 * num2 }
 
     val num1MultiPara2Fun = 3
     val num2MultiPara2Fun = 5
 
-    println("La multiplicacion de $num1MultiPara2Fun y $num2MultiPara2Fun es = ${operarDosFunciones(num1MultiPara2Fun,num2MultiPara2Fun,funcionMulti)}")
+    println(
+        "La multiplicacion de $num1MultiPara2Fun y $num2MultiPara2Fun es = ${
+            operarDosFunciones(
+                num1MultiPara2Fun,
+                num2MultiPara2Fun,
+                funcionMulti
+            )
+        }"
+    )
 
 
     /*  Bloque 10. Vararg
@@ -789,18 +829,18 @@ fun main() {
     println()
     println("<<<<< EJERCICIO 44  >>>>>>")
 
-    fun sumasNumerosVariables (vararg  numeros : Int): Int{
+    fun sumasNumerosVariables(vararg numeros: Int): Int {
         var suma = 0
 
-        for (numero in numeros){
+        for (numero in numeros) {
             suma += numero
         }
         return suma
     }
 
-    val numerosSumaMutable = mutableListOf<Int>(1,2,3,4,5)
+    val numerosSumaMutable = mutableListOf<Int>(1, 2, 3, 4, 5)
 
-    println("La suma de los numeros ${numerosSumaMutable.joinToString (", ")} es de = ${sumasNumerosVariables(*numerosSumaMutable.toIntArray())}")
+    println("La suma de los numeros ${numerosSumaMutable.joinToString(", ")} es de = ${sumasNumerosVariables(*numerosSumaMutable.toIntArray())}")
     // * permite pasar los elementos del array a la función vararg.
     // toIntArray() convierte la lista en un array de enteros.
 
@@ -812,33 +852,72 @@ fun main() {
     println()
     println("<<<<< EJERCICIO 45  >>>>>>")
 
-    fun mayorVararg (vararg  numeros : Int): Int{
+    fun mayorVararg(vararg numeros: Int): Int {
         var comprobador = numeros[0] // Guarda el primer numero de la "lista" vararg
 
-        for (numero in numeros){
-            if (numero > comprobador){
+        for (numero in numeros) {
+            if (numero > comprobador) {
                 comprobador = numero
             }
         }
         return comprobador
     }
 
-    println("El numero mayor de 1, 2, 3, 4 y 5 es el  = ${mayorVararg(1,2,3,4,5)}")
+    println("El numero mayor de 1, 2, 3, 4 y 5 es el  = ${mayorVararg(1, 2, 3, 4, 5)}")
 
     /*  Bloque 11. Funciones de extensión
     Ejercicio 46
     Crear una función de extensión para `String` llamada `invertir()`.
     */
 
+    println()
+    println("<<<<< EJERCICIO 46  >>>>>>")
+
+    val palabraReves = "reves"
+
+    fun String.invertir(): String {
+        return this.reversed() //para que funcione en variables o en el propio string directamente "Hola".invertir
+    }
+
+    println("La palabra $palabraReves al reves es ${palabraReves.invertir()}")
+
 
     /*  Ejercicio 47
     Crear una función de extensión para `Int` llamada `esPar()`.
     */
 
+    println()
+    println("<<<<< EJERCICIO 47  >>>>>>")
+
+    fun Int.esPar(): Boolean {
+        return this % 2 == 0
+    }
+
+    val numeroPar = 4
+
+    println("El número $numeroPar es par? ${numeroPar.esPar()}")
+
 
     /*  Ejercicio 48
     Crear una función de extensión para `List<Int>` que devuelva la suma de todos sus elementos.
     */
+
+    println()
+    println("<<<<< EJERCICIO 48  >>>>>>")
+
+    fun List<Int>.sumaElementos(): Int {
+
+        var acumulador = 0
+
+        for (numero in this) {
+            acumulador += numero
+        }
+        return acumulador
+    }
+
+    val sumaElementosLista = listOf(1, 2, 3, 4, 5)
+
+    println("La suma de ${sumaElementosLista.joinToString(", ")} es = ${sumaElementosLista.sumaElementos()}")
 
 
     /*  Bloque 12. Null Safety
@@ -846,21 +925,34 @@ fun main() {
     Crear una función que reciba un `String?` y devuelva su longitud. Si es nulo devolverá 0.
     */
 
+    println()
+    println("<<<<< EJERCICIO 49  >>>>>>")
+
+    fun String?.longitudString(): Int { // String?: permite que la cadena sea nula.
+        return this?.length ?: 0
+        // this?.length: obtiene la longitud si la cadena no es nula. Si lo es, devuelve null
+        // ?: 0: si el resultado anterior es null, devuelve 0.
+    }
+
+    val saberLongitud = "CINCO"
+
+    println("La palabra $saberLongitud tiene ${saberLongitud.longitudString()} letras")
+    println("La palabra TRES tiene ${"tres".longitudString()} letras")
+
 
     /*  Ejercicio 50
     Dada la siguiente lista:
-    ```kotlin
-    val nombres = listOf(
-        "Ana",
-        null,
-        "Pedro",
-        null,
-        "Lucía"
-    )
-    ```
+    val nombres = listOf("Ana", null, "Pedro", null, "Lucía")
     Mostrar únicamente los nombres no nulos.
     */
 
+
+    println()
+    println("<<<<< EJERCICIO 50  >>>>>>")
+
+    val nombres = listOf("Ana", null, "Pedro", null, "Lucía")
+
+    println("Los nombres que no son nulos de la lista ${nombres.joinToString()} son: ${nombres.filterNotNull()}")
 
     /* Ejercicio Final
     Desarrolla una aplicación de gestión de alumnos que:
