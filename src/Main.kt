@@ -570,31 +570,82 @@ fun main() {
     Contar cuántos elementos contiene una lista.
     */
 
+    println()
+    println("<<<<< EJERCICIO 30 >>>>>>")
+
+    val contarElementos = mutableListOf<Int>(1, 2, 3, 4, 5, 6, 7, 8, 9)
+
+    println("El total de elementos en la lista es de ${contarElementos.size}")
+
+//    var numeroElementos = 0
+//
+//    for (elemento in contarElementos.indices) {
+//        numeroElementos++
+//    }
+
 
     /*  Bloque 7. map, filter y reduce
     Ejercicio 31
     Dada una lista de números, generar una nueva lista con los cuadrados utilizando `map`.
     */
 
+    println()
+    println("<<<<< EJERCICIO 31 >>>>>>")
+
+    val generarNuevaLista = mutableListOf<Int>(1, 2, 3, 4, 5, 6, 7, 8, 9)
+
+    println("El mapeo de la lista, siendo el cuadradado de cada elemento es = ${generarNuevaLista.map { elemento -> elemento * elemento}}")
 
     /*  Ejercicio 32
     Obtener únicamente los números pares utilizando `filter`.
     */
+
+    println()
+    println("<<<<< EJERCICIO 32 >>>>>>")
+
+    val obtenerParesLista = mutableListOf<Int>(1, 2, 3, 4, 5, 6, 7, 8, 9)
+
+    val paresLista = obtenerParesLista.filter { elemento -> elemento % 2 == 0 }
+
+    println("Los numeros pares de la lista son = $paresLista")
 
 
     /*  Ejercicio 33
     Obtener únicamente los mayores de 50 utilizando `filter`.
     */
 
+    println()
+    println("<<<<< EJERCICIO 33 >>>>>>")
+
+    val mayores50 = mutableListOf<Int>(10,20,30,40,50,60,70,80,90,100)
+
+    println("Los numeros mayores de 50 son = ${mayores50.filter { elemento -> elemento > 50 }}")
 
     /*  Ejercicio 34
     Multiplicar todos los números por 10 utilizando `map`.
     */
 
+    println()
+    println("<<<<< EJERCICIO 34 >>>>>>")
+
+    val multiplicar10 = mutableListOf<Int>(1, 2, 3, 4, 5, 6, 7, 8, 9)
+
+    val resultadoMutliplicar10 = multiplicar10.map { elemento -> elemento * 10 }
+
+    println("El resultado de multiplicar cada elemento x 10 es = $resultadoMutliplicar10")
 
     /*  Ejercicio 35
     Calcular la suma de todos los números usando `reduce`.
     */
+
+    println()
+    println("<<<<< EJERCICIO 35 >>>>>>")
+
+    val sumaElementos = mutableListOf<Int>(1, 2, 3, 4, 5, 6, 7, 8, 9)
+
+    val resultadoSumaElementos = sumaElementos.reduce { acc, i -> i + acc }
+
+    println("La suma de todos los elementos de la lista es = $resultadoSumaElementos")
 
 
     /*  Bloque 8. Lambdas
@@ -602,36 +653,91 @@ fun main() {
     Crear una lambda que calcule el doble de un número.
     */
 
+    println()
+    println("<<<<< EJERCICIO 36 >>>>>>")
+
+    val dobleLambda: (Int) -> Int = { numero -> numero * 2}
+
+    println("El doble de 5 es = ${dobleLambda(5)}")
+
+
 
     /*  Ejercicio 37
     Crear una lambda que calcule el cuadrado usando `it`.
     */
 
+    println()
+    println("<<<<< EJERCICIO 37 >>>>>>")
+
+    val cuadradoLambdaIt: (Int) -> Int = { it * it }
+
+    println("El cuadrado de 7 es = ${cuadradoLambdaIt(7)}")
 
     /*  Ejercicio 38
     Crear una lambda que reciba dos parámetros y devuelva su suma.
     */
 
+    println()
+    println("<<<<< EJERCICIO 38 >>>>>>")
+
+    val suma2paramentrosLambda: (Int, Int) -> Int = { num1, num2 -> num1 + num2}
+    val resultadoSuma2parametros = suma2paramentrosLambda(2,4)
+
+    println("El resultado de la suma de dos parametros es de = $resultadoSuma2parametros")
 
     /*  Ejercicio 39
     Crear una lambda que determine si un número es positivo.
     */
 
+    println()
+    println("<<<<< EJERCICIO 39 >>>>>>")
+
+    val comprobarPositivoLambda: (Int) -> Boolean = { it > 0}
+    val esPositivo = comprobarPositivoLambda(-3)
+
+    println("¿El número es positivo? ${if (esPositivo) "✅" else "❌"}")
 
     /*  Ejercicio 40
     Crear una lambda que reciba una cadena y devuelva su longitud.
     */
 
+    println()
+    println("<<<<< EJERCICIO 40 >>>>>>")
+
+    val longitudCadena: (String) -> Int = { it.length }
+    val cadenaTxt = longitudCadena("Cinco")
+
+    println("La longitud de la palabra es de $cadenaTxt caracteres")
 
     /*  Bloque 9. Funciones de orden superior
     Ejercicio 41
     Crear una función que reciba otra función para realizar una operación matemática.
     */
 
+    println()
+    println("<<<<< EJERCICIO 41  >>>>>>")
+
+    val funcionResta: (Int, Int) -> Int = { num1, num2 -> num1 - num2 }
+    fun operarDosFunciones(
+        num1: Int,
+        num2: Int,
+        operacion: (Int, Int) -> Int
+    ): Int {
+        return operacion(num1, num2)
+    }
+
+    println("La resta de 2 - 2 es = ${operarDosFunciones(2,2,funcionResta)}")
 
     /*  Ejercicio 42
     Utilizar la función anterior para realizar una suma.
      */
+
+    println()
+    println("<<<<< EJERCICIO 42  >>>>>>")
+
+    val funcionSuma: (Int, Int) -> Int = {num1, num2, -> num1 + num2}
+
+    println("La suma de 2 + 2 es = ${operarDosFunciones(2,2,funcionSuma)}")
 
 
 
@@ -640,10 +746,22 @@ fun main() {
     */
 
 
+    println()
+    println("<<<<< EJERCICIO 43  >>>>>>")
+
+    val funcionMulti: (Int, Int) -> Int = { num1, num2 -> num1 * num2}
+
+    println("La multiplicacion de 2 x 2 es = ${operarDosFunciones(2,2,funcionMulti)}")
+
+
     /*  Bloque 10. Vararg
     Ejercicio 44
     Crear una función que sume un número variable de enteros.
     */
+
+    println()
+    println("<<<<< EJERCICIO 44  >>>>>>")
+
 
 
     /* Ejercicio 45
